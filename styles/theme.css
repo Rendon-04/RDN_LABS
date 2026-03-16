@@ -173,6 +173,19 @@
     line-height: 1.5;
   }
 
+  button:not(:disabled),
+  a[href],
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
   input {
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);

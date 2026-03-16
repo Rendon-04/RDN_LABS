@@ -2,7 +2,12 @@ import { motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
-export function Navbar() {
+type NavbarProps = {
+  pathname: string;
+  navigate: (to: string) => void;
+};
+
+export function Navbar({ pathname, navigate }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
@@ -20,8 +25,31 @@ export function Navbar() {
     setIsOpen(false);
   };
 
+  const handleMenuNavigation = (href: string) => {
+    if (href === "about") {
+      navigate("/about");
+      setIsOpen(false);
+      return;
+    }
+
+    if (pathname === "/") {
+      scrollToSection(href);
+      return;
+    }
+
+    navigate(`/#${href}`);
+    setIsOpen(false);
+  };
+
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setIsOpen(false);
+      return;
+    }
+
+    navigate("/");
+    setIsOpen(false);
   };
 
   return (
@@ -49,14 +77,14 @@ export function Navbar() {
             {menuItems.map((item) => (
               <button
                 key={item.label}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => handleMenuNavigation(item.href)}
                 className="text-sm text-gray-300 hover:text-white transition-colors tracking-wide font-light"
               >
                 {item.label}
               </button>
             ))}
             <button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => handleMenuNavigation("contact")}
               className="px-6 py-2 border border-white/30 text-white text-sm hover:bg-white hover:text-black transition-all duration-300 font-light backdrop-blur-sm"
             >
               Start Project
@@ -84,14 +112,14 @@ export function Navbar() {
               {menuItems.map((item) => (
                 <button
                   key={item.label}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleMenuNavigation(item.href)}
                   className="text-sm text-gray-300 hover:text-white transition-colors text-left font-light"
                 >
                   {item.label}
                 </button>
               ))}
               <button
-                onClick={() => scrollToSection("contact")}
+                onClick={() => handleMenuNavigation("contact")}
                 className="px-6 py-2 border border-white/30 text-white text-sm hover:bg-white hover:text-black transition-all duration-300 font-light"
               >
                 Start Project

@@ -1,18 +1,32 @@
-import { motion } from "motion/react";
 import { toast } from "sonner";
 
-export function Footer() {
+type FooterProps = {
+  pathname: string;
+  navigate: (to: string) => void;
+};
+
+export function Footer({ pathname, navigate }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+  const navigateToSection = (sectionId: string) => {
+    if (pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      return;
     }
+
+    navigate(`/#${sectionId}`);
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    navigate("/");
   };
 
   const handleSocialClick = (social: string) => {
@@ -47,7 +61,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <button
-                  onClick={() => scrollToSection("services")}
+                  onClick={() => navigateToSection("services")}
                   className="hover:text-black transition-colors"
                 >
                   Development
@@ -55,7 +69,7 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("services")}
+                  onClick={() => navigateToSection("services")}
                   className="hover:text-black transition-colors"
                 >
                   Design
@@ -63,7 +77,7 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("services")}
+                  onClick={() => navigateToSection("services")}
                   className="hover:text-black transition-colors"
                 >
                   Strategy
@@ -71,7 +85,7 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => navigateToSection("contact")}
                   className="hover:text-black transition-colors"
                 >
                   Consulting
@@ -86,11 +100,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <button
-                  onClick={() =>
-                    toast.info("About Us", {
-                      description: "Learn more about our story and mission.",
-                    })
-                  }
+                  onClick={() => navigate("/about")}
                   className="hover:text-black transition-colors"
                 >
                   About
@@ -110,7 +120,7 @@ export function Footer() {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => navigateToSection("contact")}
                   className="hover:text-black transition-colors"
                 >
                   Contact
