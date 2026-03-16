@@ -9,6 +9,9 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { Toaster } from "./components/ui/sonner";
 import { About } from "./pages/About";
+import { Privacy } from "./pages/Privacy";
+import { Terms } from "./pages/Terms";
+import { Cookies } from "./pages/Cookies";
 
 type RouteState = {
   pathname: string;
@@ -61,24 +64,33 @@ export default function App() {
     return () => window.cancelAnimationFrame(rafId);
   }, [routeState.pathname, routeState.hash]);
 
-  const isAboutPage = routeState.pathname === "/about";
+  const renderPage = () => {
+    switch (routeState.pathname) {
+      case "/about":
+        return <About />;
+      case "/privacy":
+        return <Privacy />;
+      case "/terms":
+        return <Terms />;
+      case "/cookies":
+        return <Cookies />;
+      default:
+        return (
+          <>
+            <Hero />
+            <Stats />
+            <Services />
+            <Projects />
+            <Contact />
+          </>
+        );
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar pathname={routeState.pathname} navigate={navigate} />
-
-      {isAboutPage ? (
-        <About />
-      ) : (
-        <>
-          <Hero />
-          <Stats />
-          <Services />
-          <Projects />
-          <Contact />
-        </>
-      )}
-
+      {renderPage()}
       <Footer pathname={routeState.pathname} navigate={navigate} />
       <Toaster position="bottom-right" />
     </div>

@@ -78,11 +78,11 @@ export function Contact() {
                   <Mail className="w-5 h-5 text-black mt-1" strokeWidth={1} />
                   <div>
                     <div className="text-sm text-gray-500 mb-1">Email</div>
-                    <div className="text-black">hello@rdnlabs.com</div>
+                    <div className="text-black">hello@rdnlabs.io</div>
                   </div>
                 </button>
 
-                <button 
+                {/* <button 
                   onClick={() => handleContactClick('Phone', '+1 (555) 123-4567')}
                   className="flex items-start gap-4 text-left w-full hover:opacity-60 transition-opacity"
                 >
@@ -91,7 +91,7 @@ export function Contact() {
                     <div className="text-sm text-gray-500 mb-1">Phone</div>
                     <div className="text-black">+1 (760) 576-9672</div>
                   </div>
-                </button>
+                </button> */}
 
                 <button 
                   onClick={() => handleContactClick('Address', 'San Francisco, CA')}

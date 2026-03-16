@@ -1,9 +1,36 @@
 import { motion } from "motion/react";
 import { ArrowRight, Play } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const projectPreviewImages = [
+  "/images/projects/hutch-preview.png",
+  "/images/projects/bae-preview.png",
+  "/images/projects/restaurant-preview.png",
+];
 
 export function Hero() {
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [projectIndex, setProjectIndex] = useState(0);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const applyPreference = () => setReducedMotion(mediaQuery.matches);
+
+    applyPreference();
+    mediaQuery.addEventListener("change", applyPreference);
+
+    return () => mediaQuery.removeEventListener("change", applyPreference);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) return;
+
+    const interval = window.setInterval(() => {
+      setProjectIndex((prev) => (prev + 1) % projectPreviewImages.length);
+    }, 7000);
+
+    return () => window.clearInterval(interval);
+  }, [reducedMotion]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -14,24 +41,9 @@ export function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Background Video with Enhanced Presentation */}
+      {/* Background gradient */}
       <div className="absolute inset-0">
-        {/* Loading state background */}
-        <div className={`absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`} />
-        
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          onLoadedData={() => setVideoLoaded(true)}
-          className="w-full h-full object-cover"
-          style={{ filter: 'brightness(0.4) contrast(1.1) saturate(0.8)' }}
-        >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4" type="video/mp4" />
-        </video>
-        
-        {/* Sophisticated gradient overlays for depth */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
       </div>
@@ -42,10 +54,24 @@ export function Hero() {
       </div>
 
       {/* Refined grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
+      <div className="hero-grid absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
+
+      {/* Rotating project previews */}
+      <div className="hero-project-preview z-10" aria-hidden="true">
+        {projectPreviewImages.map((image, index) => (
+          <img
+            key={image}
+            src={image}
+            alt=""
+            className={index === projectIndex || (reducedMotion && index === 0) ? "active" : ""}
+            loading="lazy"
+            decoding="async"
+          />
+        ))}
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      <div className="relative z-20 max-w-6xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,7 +81,7 @@ export function Hero() {
           {/* Title with refined animation */}
           <div className="space-y-6">
             <motion.h1 
-              className="text-7xl md:text-8xl lg:text-9xl tracking-tight text-white font-light"
+              className="hero-title text-7xl md:text-8xl lg:text-9xl tracking-tight text-white font-light"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}

@@ -29,12 +29,6 @@ export function Footer({ pathname, navigate }: FooterProps) {
     navigate("/");
   };
 
-  const handleSocialClick = (social: string) => {
-    toast.info(`Opening ${social}`, {
-      description: `Visit our ${social} profile for updates and insights.`,
-    });
-  };
-
   return (
     <footer className="bg-white border-t border-gray-200 py-16">
       <div className="max-w-7xl mx-auto px-6">
@@ -135,11 +129,7 @@ export function Footer({ pathname, navigate }: FooterProps) {
             <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <button
-                  onClick={() =>
-                    toast.info("Privacy Policy", {
-                      description: "View our privacy policy.",
-                    })
-                  }
+                  onClick={() => navigate("/privacy")}
                   className="hover:text-black transition-colors"
                 >
                   Privacy
@@ -147,11 +137,7 @@ export function Footer({ pathname, navigate }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() =>
-                    toast.info("Terms of Service", {
-                      description: "View our terms of service.",
-                    })
-                  }
+                  onClick={() => navigate("/terms")}
                   className="hover:text-black transition-colors"
                 >
                   Terms
@@ -159,11 +145,7 @@ export function Footer({ pathname, navigate }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() =>
-                    toast.info("Cookie Policy", {
-                      description: "View our cookie policy.",
-                    })
-                  }
+                  onClick={() => navigate("/cookies")}
                   className="hover:text-black transition-colors"
                 >
                   Cookies
@@ -179,14 +161,19 @@ export function Footer({ pathname, navigate }: FooterProps) {
             © {currentYear} RDN LABS. All rights reserved.
           </p>
           <div className="flex gap-6">
-            {["Twitter", "LinkedIn", "GitHub"].map((social) => (
-              <button
-                key={social}
-                onClick={() => handleSocialClick(social)}
+            {[
+              { label: "LinkedIn", href: "https://www.linkedin.com/in/ivanrendon91/" },
+              { label: "GitHub", href: "https://github.com/Rendon-04" },
+            ].map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer noopener"
                 className="text-xs text-gray-500 hover:text-black transition-colors"
               >
-                {social}
-              </button>
+                {social.label}
+              </a>
             ))}
           </div>
         </div>
