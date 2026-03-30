@@ -1,5 +1,3 @@
-import { toast } from "sonner";
-
 type FooterProps = {
   pathname: string;
   navigate: (to: string) => void;
@@ -49,32 +47,32 @@ export function Footer({ pathname, navigate }: FooterProps) {
             </p>
           </div>
 
-          {/* Services */}
+          {/* Navigation */}
           <div>
-            <h4 className="text-black text-sm mb-6 tracking-wide">Services</h4>
+            <h4 className="text-black text-sm mb-6 tracking-wide">Navigation</h4>
             <ul className="space-y-3 text-sm text-gray-600">
               <li>
                 <button
-                  onClick={() => navigateToSection("services")}
+                  onClick={() => navigateToSection("work")}
                   className="hover:text-black transition-colors"
                 >
-                  Development
+                  Client Work
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => navigateToSection("services")}
+                  onClick={() => navigateToSection("pricing")}
                   className="hover:text-black transition-colors"
                 >
-                  Design
+                  Pricing
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => navigateToSection("services")}
+                  onClick={() => navigate("/expertise")}
                   className="hover:text-black transition-colors"
                 >
-                  Strategy
+                  Expertise
                 </button>
               </li>
               <li>
@@ -82,7 +80,7 @@ export function Footer({ pathname, navigate }: FooterProps) {
                   onClick={() => navigateToSection("contact")}
                   className="hover:text-black transition-colors"
                 >
-                  Consulting
+                  Contact
                 </button>
               </li>
             </ul>
@@ -102,14 +100,10 @@ export function Footer({ pathname, navigate }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={() =>
-                    toast.info("Careers", {
-                      description: "Join our talented team of creators.",
-                    })
-                  }
+                  onClick={() => navigate("/expertise")}
                   className="hover:text-black transition-colors"
                 >
-                  Blog
+                  Expertise
                 </button>
               </li>
               <li>

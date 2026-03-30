@@ -37,7 +37,7 @@ export function Projects() {
           className="text-center mb-24"
         >
           <h2 className="text-5xl md:text-6xl tracking-tight text-black mb-6">
-            Work Samples
+            Client Work
           </h2>
           <div className="w-16 h-px bg-black mx-auto" />
         </motion.div>

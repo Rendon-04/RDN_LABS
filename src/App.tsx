@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
-import { Services } from "./components/Services";
-import { Stats } from "./components/Stats";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { PricingSection } from "./components/PricingSection";
 import { Toaster } from "./components/ui/sonner";
 import { About } from "./pages/About";
+import { Expertise } from "./pages/Expertise";
 import { Privacy } from "./pages/Privacy";
 import { Terms } from "./pages/Terms";
 import { Cookies } from "./pages/Cookies";
@@ -68,6 +68,8 @@ export default function App() {
     switch (routeState.pathname) {
       case "/about":
         return <About />;
+      case "/expertise":
+        return <Expertise />;
       case "/privacy":
         return <Privacy />;
       case "/terms":
@@ -78,9 +80,8 @@ export default function App() {
         return (
           <>
             <Hero />
-            <Stats />
-            <Services />
             <Projects />
+            <PricingSection />
             <Contact />
           </>
         );

@@ -11,8 +11,9 @@ export function Navbar({ pathname, navigate }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { label: "Services", href: "services" },
-    { label: "Work", href: "work" },
+    { label: "Client Work", href: "work" },
+    { label: "Pricing", href: "pricing" },
+    { label: "Expertise", href: "expertise" },
     { label: "About", href: "about" },
     { label: "Contact", href: "contact" },
   ];
@@ -26,8 +27,8 @@ export function Navbar({ pathname, navigate }: NavbarProps) {
   };
 
   const handleMenuNavigation = (href: string) => {
-    if (href === "about") {
-      navigate("/about");
+    if (href === "about" || href === "expertise") {
+      navigate(`/${href}`);
       setIsOpen(false);
       return;
     }

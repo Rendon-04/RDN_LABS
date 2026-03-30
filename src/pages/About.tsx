@@ -1,45 +1,21 @@
 import { useEffect } from "react";
 import { motion } from "motion/react";
 
-const philosophyCards = [
+const approachPillars = [
   {
-    title: "Understanding the Problem",
+    title: "Clarity First",
     description:
-      "Every project begins with understanding the business challenge before designing a technical solution.",
+      "Every project starts by understanding the business need before jumping into design or development.",
   },
   {
-    title: "Thoughtful System Design",
+    title: "Built to Last",
     description:
-      "Applications are structured for maintainability, scalability, and long-term growth.",
+      "The goal is to create systems that are clean, reliable, and able to grow with the business over time.",
   },
   {
-    title: "Modern Technology",
+    title: "Direct Collaboration",
     description:
-      "Projects use modern frameworks and proven technologies designed for performance and reliability.",
-  },
-  {
-    title: "Long-Term Thinking",
-    description:
-      "Systems are designed to evolve with your business instead of needing constant rebuilds.",
-  },
-];
-
-const technologyGroups = [
-  {
-    title: "Frontend",
-    items: ["React", "Next.js", "TypeScript"],
-  },
-  {
-    title: "Backend",
-    items: ["Python", "FastAPI", "Node.js"],
-  },
-  {
-    title: "Data",
-    items: ["PostgreSQL", "API integrations", "data modeling"],
-  },
-  {
-    title: "Infrastructure",
-    items: ["cloud hosting", "performance optimization", "scalable system architecture"],
+      "Clients work directly with the builder, which keeps communication simple and decision-making efficient.",
   },
 ];
 
@@ -49,38 +25,34 @@ export function About() {
   }, []);
 
   return (
-    <main className="bg-white pt-32">
-      <section className="py-24 bg-white">
+    <main className="relative min-h-screen overflow-hidden bg-black pt-32 text-white">
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
+      <div className="hero-grid absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
+      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')] animate-grain" />
+      </div>
+
+      <section className="relative py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="space-y-8"
-        
+              className="lg:col-span-7"
             >
-              <div>
-                <h1 className="text-5xl md:text-6xl tracking-tight text-black mb-6">About RDN Labs</h1>
-                <div className="w-16 h-px bg-black" />
-              </div>
-
-              <p className="text-2xl text-gray-700 leading-relaxed max-w-2xl">
-                Building modern web platforms with thoughtful design and scalable engineering.
+              <h1 className="text-5xl md:text-6xl tracking-tight text-white mb-6">About RDN Labs</h1>
+              <p className="text-xl text-gray-200 leading-relaxed max-w-3xl mb-6">
+                RDN Labs builds thoughtful digital products with a focus on clarity, performance,
+                and long-term usability.
               </p>
-
-              <div className="space-y-6 text-gray-600 leading-relaxed">
-                <p>
-                  RDN Labs is a development studio focused on building modern web applications,
-                  scalable backend systems, and high-performance digital platforms for startups,
-                  investment firms, and growing businesses.
-                </p>
-                <p>
-                  Every project is designed with long-term reliability, maintainability, and
-                  performance in mind.
-                </p>
-              </div>
+              <p className="text-gray-300 leading-relaxed max-w-3xl">
+                The studio combines design-minded execution with systems thinking, helping
+                businesses build digital products that are not only polished, but practical and
+                built to grow.
+              </p>
             </motion.div>
 
             <motion.div
@@ -88,13 +60,14 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="w-full"
+              className="lg:col-span-5"
             >
-              <div className="border border-gray-200 bg-gray-50 p-4">
+              <div className="relative">
+                <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-white/15 via-transparent to-blue-300/20 blur-2xl" />
                 <img
                   src="/headshot.png"
                   alt="Ivan Rendon - RDN Labs"
-                  className="about-headshot w-full aspect-[4/5] object-cover"
+                  className="relative about-headshot w-full max-w-md mx-auto aspect-[4/5] object-cover rounded-2xl shadow-[0_35px_90px_-40px_rgba(0,0,0,0.95)]"
                 />
               </div>
             </motion.div>
@@ -102,7 +75,7 @@ export function About() {
         </div>
       </section>
 
-      <section className="py-32 bg-gray-50">
+      <section className="relative py-20">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -111,142 +84,86 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="max-w-4xl"
           >
-            <h2 className="text-5xl md:text-6xl tracking-tight text-black mb-8">Who You&apos;ll Work With</h2>
-            <div className="space-y-6 text-gray-600 leading-relaxed">
+            <h2 className="text-4xl md:text-5xl tracking-tight text-white mb-8">Who You&apos;ll Work With</h2>
+            <div className="space-y-6 text-gray-300 leading-relaxed">
               <p>
                 RDN Labs is led by Ivan Rendon, a full-stack developer with a background in
-                operations, logistics, and systems design.
+                operations, logistics, and systems thinking.
               </p>
               <p>
-                Before transitioning into software development, Ivan spent over a decade working in
-                operational environments where efficiency, reliability, and structured systems were
-                essential to daily operations.
+                Before moving into software, Ivan spent years working in environments where
+                reliability, efficiency, and structure mattered every day. That experience now shapes
+                how projects are built - with clear thinking, practical decision-making, and a strong
+                focus on how the final product will actually be used.
               </p>
               <p>
-                This experience now informs how software is built at RDN Labs - focusing not only on
-                writing code, but on creating digital systems that improve how businesses operate.
-              </p>
-              <p>
-                Clients work directly with the developer building their platform, creating clearer
-                communication, faster feedback loops, and more efficient project execution.
+                Clients work directly with the person designing and building the product, which leads
+                to clearer communication, faster feedback, and a more thoughtful process from start
+                to finish.
               </p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-32 bg-white">
+      <section className="relative py-20">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-24"
+            className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl tracking-tight text-black mb-6">How Projects Are Built</h2>
-            <div className="w-16 h-px bg-black mx-auto" />
+            <h2 className="text-4xl md:text-5xl tracking-tight text-white mb-6">How We Approach Projects</h2>
+            <div className="w-16 h-px bg-white/70 mx-auto" />
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200">
-            {philosophyCards.map((card, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/15">
+            {approachPillars.map((pillar, index) => (
               <motion.article
-                key={card.title}
+                key={pillar.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="bg-white p-12"
+                className="bg-white/[0.05] p-8 md:p-10 backdrop-blur-sm"
               >
-                <h3 className="text-2xl tracking-tight text-black mb-4">{card.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{card.description}</p>
+                <h3 className="text-2xl tracking-tight text-white mb-4">{pillar.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{pillar.description}</p>
               </motion.article>
             ))}
           </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-sm text-gray-400 leading-relaxed mt-8 text-center"
+          >
+            Projects are built using modern tools across design, frontend, backend, and infrastructure.
+          </motion.p>
         </div>
       </section>
 
-      <section className="py-32 bg-gray-50">
+      <section className="relative pb-32 pt-16">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-24"
+            className="border border-white/20 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-12 md:p-16 text-center"
           >
-            <h2 className="text-5xl md:text-6xl tracking-tight text-black mb-6">Technology</h2>
-            <div className="w-16 h-px bg-black mx-auto" />
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200">
-            {technologyGroups.map((group, index) => (
-              <motion.section
-                key={group.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="bg-white p-10"
-                aria-label={group.title}
-              >
-                <h3 className="text-2xl tracking-tight text-black mb-5">{group.title}</h3>
-                <ul className="space-y-3 text-gray-600">
-                  {group.items.map((item) => (
-                    <li key={item} className="leading-relaxed">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.section>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl"
-          >
-            <h2 className="text-5xl md:text-6xl tracking-tight text-black mb-8">Working Together</h2>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              RDN Labs operates as a focused development studio, which means clients work directly
-              with the person building their platform.
-            </p>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              This allows for faster communication, clearer technical decisions, and a more
-              collaborative development process.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              Projects range from custom websites and startup MVPs to internal dashboards and fully
-              featured web platforms.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="border border-gray-200 bg-white p-12 md:p-16 text-center"
-          >
-            <h2 className="text-5xl md:text-6xl tracking-tight text-black mb-6">Start a Project</h2>
-            <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto mb-10">
-              If you&apos;re building a new platform or improving an existing one, RDN Labs can help
-              design and develop a scalable solution.
+            <h2 className="text-5xl md:text-6xl tracking-tight text-white mb-6">Start a Project</h2>
+            <p className="text-gray-300 leading-relaxed max-w-3xl mx-auto mb-10">
+              If you&apos;re building something new or refining an existing platform, RDN Labs can help
+              bring structure, clarity, and strong execution to the process.
             </p>
             <a
               href="/#contact"
-              className="inline-flex items-center justify-center px-8 py-3 border border-black text-black hover:bg-black hover:text-white transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-3 border border-white/40 text-white hover:bg-white hover:text-black transition-all duration-300"
             >
               Get in Touch
             </a>

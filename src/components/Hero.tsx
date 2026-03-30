@@ -133,7 +133,7 @@ export function Hero() {
               className="group px-10 py-4 text-gray-300 hover:text-white transition-all duration-300 flex items-center gap-2 justify-center border border-transparent hover:border-white/20"
             >
               <Play className="w-4 h-4 transition-transform group-hover:scale-110 duration-300" />
-              <span className="font-light tracking-wide">View Portfolio</span>
+              <span className="font-light tracking-wide">Client Work</span>
             </button>
           </motion.div>
         </motion.div>
