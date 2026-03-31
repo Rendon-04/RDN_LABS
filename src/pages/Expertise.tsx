@@ -17,7 +17,7 @@ const expertiseItems: ExpertiseItem[] = [
     intro: "Build products that actually scale with your business.",
     icon: Code2,
     description:
-      "We design and build web applications that are fast, reliable, and built to grow with you — not break when things start working.",
+      "We design and build web applications that are fast, reliable, and built to grow with you — not break.",
     services: [
       "Custom web applications tailored to your business",
       "Internal tools and dashboards to streamline operations",
@@ -31,7 +31,7 @@ const expertiseItems: ExpertiseItem[] = [
     intro: "Make your product feel as good as it functions.",
     icon: Palette,
     description:
-      "We design clean, intuitive interfaces that help users understand your product instantly — and actually enjoy using it.",
+      "We create clean, intuitive interfaces that make your product easy to understand and genuinely enjoyable to use.",
     services: [
       "UI/UX design focused on clarity and usability",
       "User flows that guide people to take action",
@@ -45,7 +45,7 @@ const expertiseItems: ExpertiseItem[] = [
     intro: "Turn your website into a high-performing asset.",
     icon: Rocket,
     description:
-      "We improve speed, stability, and performance so your product not only works — but converts, ranks, and retains users.",
+      "We improve speed, stability, and performance so your product not only works, but converts, ranks, and retains users.",
     services: [
       "Speed and performance improvements",
       "Core Web Vitals optimization",
@@ -56,7 +56,7 @@ const expertiseItems: ExpertiseItem[] = [
   },
   {
     title: "Strategy",
-    intro: "Build with direction — not guesswork.",
+    intro: "Build with direction, not guesswork.",
     icon: Globe,
     description:
       "We help you define what to build, why it matters, and how to execute it in a way that supports real business growth.",
@@ -87,7 +87,7 @@ const expertiseItems: ExpertiseItem[] = [
     intro: "Build a foundation that won’t slow you down later.",
     icon: Layers,
     description:
-      "We design systems that are clean, scalable, and easy to maintain — so you don’t have to rebuild everything in 6 months.",
+      "We design systems that are clean, scalable, and easy to maintain, so you don’t have to rebuild everything in 6 months.",
     services: [
       "Scalable system architecture",
       "Clean backend structure and organization",

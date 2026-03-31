@@ -16,7 +16,7 @@ type Plan = {
 const plans: Plan[] = [
   {
     name: "Starter",
-    price: "$699 one-time or $99/month",
+    price: "Starting at $699 one-time or $99/month",
     description:
       "For simple, high-quality web presence projects that need a professional launch quickly.",
     features: [
@@ -34,7 +34,7 @@ const plans: Plan[] = [
   },
   {
     name: "Growth",
-    price: "$1,499 one-time or $199/month",
+    price: "Starting at $1,499 one-time or $199/month",
     description:
       "For growing businesses that need more content flexibility, stronger branding, and support.",
     features: [
@@ -60,7 +60,7 @@ const plans: Plan[] = [
       "Complex integrations",
       "Custom business logic",
       "Performance and security hardening",
-      "Longer support window",
+      "6 months of support",
     ],
     cta: "Start Project",
     icon: Gem,
@@ -148,8 +148,8 @@ export function PricingSection() {
             className="mt-12 border-t border-white/20 pt-10 text-center"
           >
           <p className="mx-auto max-w-4xl text-sm text-gray-300 leading-relaxed">
-            Looking for something different? Extra pages, e-commerce modules, or custom
-            functionality can be added for an additional fee - contact us for a custom quote.
+            Looking for something different? Unlimited monthly support, extra pages, or custom
+            functionality can be added for an additional fee. Contact us for a custom quote.
           </p>
           <a
             href="/expertise"

@@ -49,7 +49,7 @@ export function About() {
                 and long-term usability.
               </p>
               <p className="text-gray-300 leading-relaxed max-w-3xl">
-                The studio combines design-minded execution with systems thinking, helping
+                The labs combines design-minded execution with systems thinking, helping
                 businesses build digital products that are not only polished, but practical and
                 built to grow.
               </p>
@@ -93,7 +93,7 @@ export function About() {
               <p>
                 Before moving into software, Ivan spent years working in environments where
                 reliability, efficiency, and structure mattered every day. That experience now shapes
-                how projects are built - with clear thinking, practical decision-making, and a strong
+                how projects are built, with clear thinking, practical decision-making, and a strong
                 focus on how the final product will actually be used.
               </p>
               <p>
