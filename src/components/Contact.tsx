@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Mail, MapPin, Phone, ArrowRight } from "lucide-react";
+import { Mail, MapPin, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
