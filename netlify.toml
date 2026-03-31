@@ -1,0 +1,4 @@
+[build]
+  base = "RDNL"
+  command = "npm run build"
+  publish = "dist"
